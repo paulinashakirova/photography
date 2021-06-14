@@ -1,12 +1,12 @@
 require("dotenv").config();
-const mysql = require("mysql");
+import { createConnection } from "mysql";
 
 const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 const DB_NAME = process.env.DB_NAME;
 
-const con = mysql.createConnection({
+const con = createConnection({
   host: DB_HOST || "127.0.0.1",
   user: DB_USER || "root",
   password: DB_PASS,
@@ -19,10 +19,10 @@ con.connect(function(err) {
   console.log("Connected!");
 
   let sql =
-    "DROP TABLE if exists students; CREATE TABLE students(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, PRIMARY KEY (id));";
+    "DROP TABLE if exists topics; CREATE TABLE topics(id INT NOT NULL AUTO_INCREMENT, title VARCHAR(40) not null, description VARCHAR(40) not null, PRIMARY KEY (id));";
   con.query(sql, function(err, result) {
     if (err) throw err;
-    console.log("Table creation `students` was successful!");
+    console.log("Table creation `topics` was successful!");
 
     console.log("Closing...");
   });
