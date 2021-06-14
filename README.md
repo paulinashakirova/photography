@@ -33,10 +33,10 @@
 
 Create a webpage with the following functionality:
 
-- [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture).
+- [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture, flora and fauna).
 - [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo.
   - After submitting the form, the new photo should be added to the database and displayed on the page.
-- [ ] Each photo can be deleted with a delete button7icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the page
+- [ ] Each photo can be deleted with a delete button/icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the page
 - [ ] Style the app to make it look as polished as possible. Bootstrap is already loaded in the index.html file, so you can use it if you want to.
 - [ ] Clicking on a photo should show the photo's title, and a short description at the top of the catalog. The info to display this featured photo should be obtained from a fetch request to `/topics/:field/:id`
 
