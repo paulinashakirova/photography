@@ -34,15 +34,17 @@
 Create a webpage with the following functionality:
 
 - [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture, flora and fauna).
-- [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo.
-  - After submitting the form, the new photo should be added to the database and displayed on the page.
-- [ ] Each photo can be deleted with a delete button/icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the page
+- [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo on the admin view.
+  - After submitting the form, the new photo should be added to the database and displayed on the user view.
+- [ ] Each photo can be deleted with a delete button/icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the user view.
+- [ ] Each photo can be added to a shopping cart with an add button/icon. After clicking on this button, photo should be added to a cart, showing title and price.
+If there are some selected photos, these should add up prices and show a total.
 - [ ] Style the app to make it look as polished as possible. Bootstrap is already loaded in the index.html file, so you can use it if you want to.
-- [ ] Clicking on a photo should show the photo's title, and a short description at the top of the catalog. The info to display this featured photo should be obtained from a fetch request to `/topics/:field/:id`
+- [ ] Clicking on a photo should show the photo's title, and a description at the top of the catalog. The info to display this featured photo should be obtained from a fetch request to `/topics/:theme/:id`
 
 To accomplish this, you will need to:
 
-- [ ] Finish the routes in the API server (`/routes/students.js`).
+- [ ] Finish the routes in the API server (`/routes/users.js`).
 - [ ] Finish the front end (`/client/src/`). Create as many components as you need.
 
 ## Guidelines
@@ -61,6 +63,6 @@ To accomplish this, you will need to:
 Suggested Process:
 
 1. Try and write the correct query in `mysql`.
-1. Use that query to finish the endpoints in `/routes/students.js`.
+1. Use that query to finish the endpoints in `/routes/users.js`.
 1. Test your endpoints using Postman.
 1. Call the endpoints from the front end.
