@@ -11,7 +11,7 @@ CREATE TABLE `topic` (
 );
 
 CREATE TABLE `photo` (
-	`photo_id` INT NOT NULL,
+	`photo_id` INT NOT NULL AUTO_INCREMENT,
 	`title` varchar(255) NOT NULL,
 	`description` TEXT NOT NULL,
 	`image` varchar(255) NOT NULL,
