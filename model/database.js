@@ -1,5 +1,7 @@
 require("dotenv").config();
 const mysql = require("mysql");
+const fs = require("fs");
+
 
 const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.DB_USER;
@@ -10,7 +12,7 @@ const con = mysql.createConnection({
   host: DB_HOST || "127.0.0.1",
   user: DB_USER || "root",
   password: DB_PASS,
-  database: DB_NAME || "photography",
+  database: DB_NAME || "photo",
   multipleStatements: true
 });
 
@@ -18,11 +20,11 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql =
-    "DROP TABLE if exists topics; CREATE TABLE topics(id INT NOT NULL AUTO_INCREMENT, theme VARCHAR(40) not null, description VARCHAR(40) not null, PRIMARY KEY (id));";
+  let sql = fs.readFileSync(__dirname+"/photo_db.sql").toString();
   con.query(sql, function(err, result) {
+   
     if (err) throw err;
-    console.log("Table creation `topics` was successful!");
+    console.log("Tables were successful!");
 
     console.log("Closing...");
   });

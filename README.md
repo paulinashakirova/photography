@@ -34,7 +34,7 @@
 Create a webpage with the following functionality:
 
 - [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture, flora and fauna).
-- [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo on the admin view.
+- [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo. Finally an input for the URL of the photo that will be represent that theme. (All these should be on the admin view).
   - After submitting the form, the new photo should be added to the database and displayed on the user view.
 - [ ] Each photo can be deleted with a delete button/icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the user view.
 - [ ] Each photo can be added to a shopping cart with an add button/icon. After clicking on this button, photo should be added to a cart, showing title and price.
@@ -66,3 +66,7 @@ Suggested Process:
 1. Use that query to finish the endpoints in `/routes/users.js`.
 1. Test your endpoints using Postman.
 1. Call the endpoints from the front end.
+
+## Ask to Germinal
+1. In "routes" folder I have two files: "index.js" and "users.js". Do I need both of them?
+2. 
