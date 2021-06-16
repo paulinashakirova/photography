@@ -20,14 +20,14 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/addtopic">Add Topic</Link>
+              <Link to="/addtopic">Add Topic</Link> 
             </li>
             <li>
               <Link to="/addphoto">Add Photo</Link>
             </li>
           </ul>
         </nav>
-      <Switch>        
+      <Switch>             
         <Route path="/addtopic">
           <AddTopic />
         </Route>
