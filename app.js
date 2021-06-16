@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var topicRouter = require('./routes/topic');
-var photoRouter = require('./routes/photo')
+var topicRouter = require('./routes/topics');
+var photoRouter = require('./routes/photos')
 
 var app = express();
 
@@ -16,8 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/topic', topicRouter);
-app.use('/photo', photoRouter);
+app.use('/topics', topicRouter);
+app.use('/photos', photoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -28,7 +28,7 @@ router.get("/:topic_id", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     await db(       
-      `insert into topic (topic_id, theme, description, image) values ('${req.body.topic_id}', '${req.body.theme}', '${req.body.description}', '${req.body.image}');`
+      `insert into topic (theme, description, image) values ('${req.body.theme}', '${req.body.description}', '${req.body.image}');`
     );
     res.send({ msg: "Topic inserted" });
   } catch (err) {
@@ -48,14 +48,14 @@ try{
 });
 
 /* GET photo listing. */
-// router.get('/topic_id', async (req, res, next) => {
-//   try {
-//     const results = await db("SELECT * FROM photo;");
-//     res.send(results.data);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }  
-// });
+router.get('/:topic_id/photos', async (req, res, next) => {
+  try {
+    const results = await db(`SELECT * FROM photo where topic_id = ${req.params.topic_id};`);
+    res.send(results.data);
+  } catch (err) {
+    res.status(500).send(err);
+  }  
+});
 
 // INSERT a new photo into topic
 // router.post("/:topic_id", async (req, res, next) => {

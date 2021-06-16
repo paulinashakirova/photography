@@ -1,8 +1,7 @@
 import React from "react";
 import AddTopic from './components/AddTopic'
 import AddPhoto from './components/AddPhoto'
-// import AdminViewPhoto from './components/AdminViewPhoto'
-// import UserViewTopic from './components/UserViewTopic'
+
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -10,8 +9,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
-
 
 export default function App() {
   
@@ -23,19 +20,19 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/addTopic">Add Topic</Link>
+              <Link to="/addtopic">Add Topic</Link>
             </li>
             <li>
-              <Link to="/addPhoto">Add Photo</Link>
+              <Link to="/addphoto">Add Photo</Link>
             </li>
           </ul>
         </nav>
       <Switch>        
-        <Route path="/addPhoto">
-          <AddPhoto />
-        </Route>
-        <Route path="/addTopic">
+        <Route path="/addtopic">
           <AddTopic />
+        </Route>
+        <Route path="/addphoto">
+          <AddPhoto />
         </Route>
       </Switch>
     </div>
