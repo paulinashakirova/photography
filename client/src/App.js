@@ -16,17 +16,18 @@ export default function App() {
     <Router>
     <div className="container pt-5">
       <h1 className="text-center">Karenina Photography</h1>
-        <div className='d-flex justify-content'>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/addtopic">Add Topic</Link> 
-            </li>
-            <li>
-              <Link to="/addphoto">Add Photo</Link>
-            </li>
-          </ul>
-        </nav>
+      
+      <div className="d-flex justify-content-center">
+      <nav className="navbar navbar-light bg-light">
+          <div className="container-fluid">            
+            <Link to="/addtopic">Add Topic</Link>            
+            <Link to="/addphoto">Add Photo</Link>            
+          </div>
+        </nav>  
+      </div> 
+    
+      
+      <div className='d-flex justify-content-center'>           
       <Switch>             
         <Route path="/addtopic">
           <AddTopic />
@@ -35,8 +36,8 @@ export default function App() {
           <AddPhoto />
         </Route>
       </Switch>
-    </div>
-  </div>
+      </div>
+    </div> 
   </Router>
   );
 }

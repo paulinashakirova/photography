@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const errorMessage = "There was a problem, please try again later";
 
-export default function AddTopic() {
+export default function AddTopic(props) {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [topics, setTopics] = useState ([]);
@@ -94,7 +94,7 @@ export default function AddTopic() {
           name="description"           
           onChange={handleInputChange} />
         </div>
-        <button className='btn btn-primary'>Add Topic</button>
+        <button className='btn btn-light'>Add Topic</button>
       </form>
       {error && <div className="alert alert-danger">{error}</div>}
 
