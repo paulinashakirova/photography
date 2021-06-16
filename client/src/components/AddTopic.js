@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const errorMessage = "There was a problem, please try again later";
 
-export default function AddTopic(props) {
+export default function AddTopic() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [topics, setTopics] = useState ([]);
@@ -39,7 +39,7 @@ export default function AddTopic(props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ values }),
+        body: JSON.stringify( values ),
       });
       const json = await response.json();
       if (!response.ok) {
@@ -72,16 +72,27 @@ export default function AddTopic(props) {
         <div className='row'>
           <div className='col form-group'>
             <label>Theme</label>
-            <input className='form-control mb-2' name='title' onChange={handleInputChange} />
+            <input 
+            className='form-control mb-2' 
+            name="theme" 
+            type="text"            
+            onChange={handleInputChange} />
           </div>
           <div className='col form-group'>
             <label>Image</label>
-            <input className='form-control mb-2' name='url' onChange={handleInputChange} />
+            <input 
+            className='form-control mb-2' 
+            name="image"             
+            onChange={handleInputChange} />
           </div>
         </div>
         <div>
           <label>Description</label>
-          <textarea className='form-control mb-2' name='description' onChange={handleInputChange} />
+          <textarea 
+          className="form-control mb-2"
+          type="text"
+          name="description"           
+          onChange={handleInputChange} />
         </div>
         <button className='btn btn-primary'>Add Topic</button>
       </form>
