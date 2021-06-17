@@ -13,7 +13,8 @@ export default function AddPhoto() {
     title: "",    
     image: "",
     price: "",
-    description: ""  
+    description: "",
+    topic_id: "",  
   })
 
   useEffect(() => {
@@ -31,14 +32,14 @@ export default function AddPhoto() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addPhoto(values);
+    addPhoto();
   };
 
   const addPhoto = async () => {
     setError("");
     setMessage("");
     try {
-      const response = await fetch("/topics/topic_id/photos", {
+      const response = await fetch("/photos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +60,7 @@ export default function AddPhoto() {
   const getPhotos = async () => {
     setError("");
     try {
-      const response = await fetch("/topics/topic_id/photos");
+      const response = await fetch("/photos");
       if (!response.ok) throw { message: errorMessage };
 
       const json = await response.json();
@@ -116,15 +117,17 @@ const getTopics = async () => {
             name="price"             
             onChange={handleInputChange} />
           </div>          
-           <select 
+           <select           
+           onChange={handleInputChange}
            className="form-select mb-2" 
-           aria-label="Default select example"
-          //  value={topic.theme}
-          //  onChange={handleChange}
+           aria-label="Default select example"          
            >
            <option selected>Select a Topic</option>
            {topics.map((topic) => (
-            <option key={topic.topic_id}>{topic.theme}</option>
+            <option
+            name="topic_id"             
+            value={topic.topic_id}
+            key={topic.topic_id}>{topic.theme}</option>
            ))}              
            </select>
           </div>        
@@ -142,6 +145,11 @@ const getTopics = async () => {
 
       {message && <div className="alert alert-success">{message}</div>}
     </div>      
+    <div>
+      {photos.map((photo) => (
+        <div key={photo.photo_id}>{photo.title}</div>
+      ))}
+    </div>
     </div>
   )
     

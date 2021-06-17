@@ -4,14 +4,14 @@ const db = require("../model/helper");
 
 
 /* GET photo listing. */
-// router.get('/', async (req, res, next) => {
-//   try {
-//     const results = await db("SELECT * FROM photo;");
-//     res.send(results.data);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }  
-// });
+router.get('/', async (req, res, next) => {
+  try {
+    const results = await db("SELECT * FROM photo;");
+    res.send(results.data);
+  } catch (err) {
+    res.status(500).send(err);
+  }  
+});
 
 // GET one photo
 router.get("/:photo_id", async (req, res, next) => {
@@ -25,7 +25,7 @@ router.get("/:photo_id", async (req, res, next) => {
   }
 });
 
-// INSERT a new photo into topic
+// INSERT a new photo into photos
 router.post("/", async (req, res, next) => {
   try {
     await db(       
