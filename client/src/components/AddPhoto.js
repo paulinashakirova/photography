@@ -117,7 +117,8 @@ const getTopics = async () => {
             name="price"             
             onChange={handleInputChange} />
           </div>          
-           <select           
+           <select  
+           name="topic_id"           
            onChange={handleInputChange}
            className="form-select mb-2" 
            aria-label="Default select example"          
@@ -125,7 +126,7 @@ const getTopics = async () => {
            <option selected>Select a Topic</option>
            {topics.map((topic) => (
             <option
-            name="topic_id"             
+                       
             value={topic.topic_id}
             key={topic.topic_id}>{topic.theme}</option>
            ))}              
