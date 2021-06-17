@@ -41,7 +41,7 @@ router.post("/", async (req, res, next) => {
 router.delete("/:photo_id", async (req, res) => {
 try{
   await db(
-    `delete from photo where photo_id = ${req.params.photo_id};`);
+    `delete from photo where photo_id = ${req.params.photo_id}`);
     res.send({ msg: "Photo deleted" });
 } catch (err) {
   res.status(404).send(err);

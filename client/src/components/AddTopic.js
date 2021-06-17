@@ -99,7 +99,7 @@ export default function AddTopic() {
       {error && <div className="alert alert-danger">{error}</div>}
 
       {message && <div className="alert alert-success">{message}</div>}
-    </div>  
+    </div>     
     </div>
   )
 }

@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 const errorMessage = "There was a problem, please try again later";
 
 export default function AddPhoto() {
-  const [error, setError] = useState("");
-  const [topicOption, setTopicOption] = useState()
+  const [topics, setTopics] = useState([]);
+  
+  //Add Photo states
+  const [error, setError] = useState("");  
   const [message, setMessage] = useState("");
   const [photos, setPhotos] = useState ([]);
   const [values, setValues] = useState({
@@ -67,8 +69,28 @@ export default function AddPhoto() {
     }
   };
 
+//Get all the Topics
+useEffect(() => {
+  getTopics();
+}, []);
+
+const getTopics = async () => {
+  setError("");
+  try {
+    const response = await fetch("/topics");
+    if (!response.ok) throw { message: errorMessage };
+
+    const json = await response.json();
+    setTopics(json);
+  } catch (error) {
+    setError(error.message);
+  }
+};
+
   return (
     <div>
+    <div>        
+      </div>
     <div className='card card-body mt-4'>
       <form onSubmit={handleSubmit}>
         <div className='row'>            
@@ -97,14 +119,13 @@ export default function AddPhoto() {
            <select 
            className="form-select mb-2" 
            aria-label="Default select example"
-          //  value={}
+          //  value={topic.theme}
           //  onChange={handleChange}
            >
-            <option selected>Select a Topic</option>
-            {/* {topicOption.map((option) => ( */}
-                <option>topic</option>
-            ))      
-              
+           <option selected>Select a Topic</option>
+           {topics.map((topic) => (
+            <option key={topic.topic_id}>{topic.theme}</option>
+           ))}              
            </select>
           </div>        
         <div>
@@ -120,8 +141,10 @@ export default function AddPhoto() {
       {error && <div className="alert alert-danger">{error}</div>}
 
       {message && <div className="alert alert-success">{message}</div>}
-    </div>  
+    </div>      
     </div>
   )
+    
+  
     
 }
