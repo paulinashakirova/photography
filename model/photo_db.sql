@@ -1,6 +1,11 @@
+SET foreign_key_checks = 0;
+
 DROP TABLE IF EXISTS `topic`;
 DROP TABLE IF EXISTS `photo`;
 DROP TABLE IF EXISTS `cart_items`;
+
+SET foreign_key_checks = 1;
+
 
 CREATE TABLE `topic` (
 	`topic_id` INT NOT NULL AUTO_INCREMENT,

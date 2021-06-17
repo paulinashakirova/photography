@@ -94,11 +94,17 @@ export default function AddPhoto() {
             name="price"             
             onChange={handleInputChange} />
           </div>          
-           <select className="form-select mb-2" aria-label="Default select example">
+           <select 
+           className="form-select mb-2" 
+           aria-label="Default select example"
+          //  value={}
+          //  onChange={handleChange}
+           >
             <option selected>Select a Topic</option>
-              <option>topic</option>
-              <option>topic</option>
-              <option>topic</option>
+            {/* {topicOption.map((option) => ( */}
+                <option>topic</option>
+            ))      
+              
            </select>
           </div>        
         <div>

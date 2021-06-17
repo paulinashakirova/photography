@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const errorMessage = "There was a problem, please try again later";
 
-export default function AddTopic(props) {
+export default function AddTopic() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [topics, setTopics] = useState ([]);

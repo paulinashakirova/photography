@@ -61,7 +61,7 @@ router.get('/:topic_id/photos', async (req, res, next) => {
 router.post("/:topic_id/photos", async (req, res, next) => {
   try {
     await db(       
-      `insert into photo (photo_id, title, description, image, price, topic_id) values ('${req.body.photo_id}','${req.body.title}', '${req.body.description}', '${req.body.image}', '${req.body.price}', '${req.body.topic_id}');`
+      `insert into photo (title, description, image, price, topic_id) values ('${req.body.title}', '${req.body.description}', '${req.body.image}', '${req.body.price}', '${req.body.topic_id}');`
     );
     res.send({ msg: "Photo inserted" });
   } catch (err) {
