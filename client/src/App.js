@@ -1,6 +1,7 @@
 import React from "react";
 import AddTopic from './components/AddTopic'
 import AddPhoto from './components/AddPhoto'
+import UserView from './components/UserView'
 
 import './App.css';
 import {
@@ -21,7 +22,8 @@ export default function App() {
       <nav className="navbar navbar-light bg-light">
           <div className="container-fluid">            
             <Link to="/addtopic">Add Topic</Link>            
-            <Link to="/addphoto">Add Photo</Link>            
+            <Link to="/addphoto">Add Photo</Link> 
+            <Link to="/userview">User View</Link>            
           </div>
         </nav>  
       </div> 
@@ -34,6 +36,9 @@ export default function App() {
         </Route>
         <Route path="/addphoto">
           <AddPhoto />
+        </Route>
+        <Route path="/userview">
+          <UserView />
         </Route>
       </Switch>
       </div>
