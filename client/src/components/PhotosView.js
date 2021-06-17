@@ -29,7 +29,14 @@ export default function PhotosView() {
         <div>
          <div>
       {photos.map((photo, i) => (
-        <div key={i}>{photo.title}</div>
+          <div className='col-3 mb-4' key={i}>        
+        <img 
+          alt='Topic' 
+          src={photo.image} 
+          className='img-fluid rounded shadow' />
+          <label>{photo.title}</label>
+          <label>{photo.price}</label>
+          </div>
       ))}
     </div>   
         </div>
