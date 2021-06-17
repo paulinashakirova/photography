@@ -125,8 +125,7 @@ const getTopics = async () => {
            >
            <option selected>Select a Topic</option>
            {topics.map((topic) => (
-            <option
-                       
+            <option                       
             value={topic.topic_id}
             key={topic.topic_id}>{topic.theme}</option>
            ))}              
