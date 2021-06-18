@@ -1,7 +1,7 @@
 import React from "react";
 import AddTopic from './components/AddTopic'
 import AddPhoto from './components/AddPhoto'
-import UserView from './components/UserView'
+import TopicsView from './components/TopicsView'
 
 import './App.css';
 import {
@@ -31,7 +31,7 @@ export default function App() {
             <Link to="/addphoto">Add Photo</Link>
             </div>
             <div className="col">
-            <Link to="/userview">User View</Link>
+            <Link to="/topicsview">Topics View</Link>
             </div> 
         </div>
       </nav>  
@@ -48,8 +48,8 @@ export default function App() {
         <Route path="/addphoto">
           <AddPhoto />
         </Route>
-        <Route path="/userview">
-          <UserView />
+        <Route path="/topicsview">
+          <TopicsView />
         </Route>
       </Switch>
       </div>

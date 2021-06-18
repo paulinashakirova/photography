@@ -69,9 +69,7 @@ export default function AddTopic() {
   const deleteTopic = async (topic_id) => {
     setError("");
     setMessage("");
-    // delete task from database
-    // upon success, update tasks
-    // upon failure, show error message
+    
     try {
       const response = await fetch(`/topics/${topic_id}`, {
         method: "DELETE",
@@ -105,6 +103,7 @@ export default function AddTopic() {
             <label>Image</label>
             <input 
             className='form-control mb-2' 
+            type="text"            
             name="image"             
             onChange={handleInputChange} />
           </div>
