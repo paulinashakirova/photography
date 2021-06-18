@@ -88,6 +88,28 @@ const getTopics = async () => {
   }
 };
 
+const deletePhoto = async (photo_id) => {
+  setError("");
+  setMessage("");
+  // delete task from database
+  // upon success, update tasks
+  // upon failure, show error message
+  try {
+    const response = await fetch(`/photos/${photo_id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) throw { message: errorMessage };
+
+    const json = await response.json();
+    setMessage(json.msg);
+
+    getPhotos();
+  } catch (error) {
+    setError(error.message);
+  }
+};
+
   return (
     <div>
     <div>        
@@ -144,15 +166,21 @@ const getTopics = async () => {
       {error && <div className="alert alert-danger">{error}</div>}
 
       {message && <div className="alert alert-success">{message}</div>}
-    </div>      
-    <div>
-      {photos.map((photo) => (
-        <div key={photo.photo_id}>{photo.title}</div>
+    </div>  
+    {photos.map((photo, i) => (
+        <div className='col-3 mb-4' key={i}>         
+          <div>
+          <label>{photo.title}</label>
+          <button
+          onClick={() => deletePhoto(photo.photo_id)}
+          className="btn btn-sm btn-light"
+          >
+          Delete
+          </button>  
+          </div>                                
+        </div>
       ))}
     </div>
-    </div>
-  )
-    
-  
-    
+  )  
 }
+

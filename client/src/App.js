@@ -15,18 +15,29 @@ export default function App() {
   
   return (
     <Router>
-    <div className="container pt-5">
-      <h1 className="text-center">Karenina Photography</h1>
+    <div className="container q w-50">    
+    <div className="container pt-4">
+      <div className="row">
+        <h1>Karenina Photography</h1>
+      </div>
+    </div>
+    <div>
+      <nav className="bg-light">
+          <div className="row">
+            <div className="col">
+              <Link to="/addtopic">Add Topic</Link>
+            </div>            
+            <div className="col">           
+            <Link to="/addphoto">Add Photo</Link>
+            </div>
+            <div className="col">
+            <Link to="/userview">User View</Link>
+            </div> 
+        </div>
+      </nav>  
+    </div>      
       
-      <div className="d-flex justify-content-center">
-      <nav className="navbar navbar-light bg-light">
-          <div className="container-fluid">            
-            <Link to="/addtopic">Add Topic</Link>            
-            <Link to="/addphoto">Add Photo</Link> 
-            <Link to="/userview">User View</Link>            
-          </div>
-        </nav>  
-      </div> 
+      {/* </div>  */}
     
       
       <div className='d-flex justify-content-center'>           

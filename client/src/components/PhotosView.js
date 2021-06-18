@@ -35,7 +35,7 @@ export default function PhotosView() {
           src={photo.image} 
           className='img-fluid rounded shadow' />
           <label>{photo.title}</label>
-          <label>{photo.price}</label>
+          <label>{photo.price}€</label>
           </div>
       ))}
     </div>   

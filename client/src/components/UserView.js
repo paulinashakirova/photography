@@ -33,6 +33,7 @@ export default function UserView() {
     }
   };
 
+
     return (
     <Router>
         <div className="row mt-5">          
@@ -44,9 +45,8 @@ export default function UserView() {
           alt='Topic' 
           src={topic.image} 
           className='img-fluid rounded shadow' />
-           <label>{topic.theme}</label>
-          </Link>
-         
+           <label>{topic.theme}</label>           
+          </Link>                   
         </div>
       ))} 
       <Switch>

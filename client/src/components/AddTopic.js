@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const errorMessage = "There was a problem, please try again later";
+const errorMessageDelete = "You cannot delete this topic because it contains an album";
 
 export default function AddTopic() {
   const [error, setError] = useState("");
@@ -65,6 +66,28 @@ export default function AddTopic() {
     }
   };
 
+  const deleteTopic = async (topic_id) => {
+    setError("");
+    setMessage("");
+    // delete task from database
+    // upon success, update tasks
+    // upon failure, show error message
+    try {
+      const response = await fetch(`/topics/${topic_id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw { message: errorMessageDelete };
+
+      const json = await response.json();
+      setMessage(json.msg);
+
+      getTopics();
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div>
     <div className='card card-body mt-4'>
@@ -99,7 +122,20 @@ export default function AddTopic() {
       {error && <div className="alert alert-danger">{error}</div>}
 
       {message && <div className="alert alert-success">{message}</div>}
-    </div>     
+    </div>  
+    {topics.map((topic, i) => (
+        <div className='col-3 mb-4' key={i}>         
+          <div>
+          <label>{topic.theme}</label>
+          <button
+          onClick={() => deleteTopic(topic.topic_id)}
+          className="btn btn-sm btn-light"
+          >
+          Delete
+          </button>  
+          </div>                                
+        </div>
+      ))}    
     </div>
   )
 }
