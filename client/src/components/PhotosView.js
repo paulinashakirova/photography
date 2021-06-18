@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom"
 
 const errorMessage = "There was a problem, please try again later";
 
@@ -6,11 +7,12 @@ const errorMessage = "There was a problem, please try again later";
 export default function PhotosView() {
   const [photos, setPhotos] = useState([]); 
   const [error, setError] = useState("");  
-  const topic_id = 9
+  const { topic_id } = useParams();
+
   //Get all photos
   useEffect(() => {
     getPhotos();
- }, []);
+ }, [topic_id]);
 
  const getPhotos = async () => {
     setError("");
@@ -42,3 +44,5 @@ export default function PhotosView() {
         </div>
     )
 }
+
+

@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PhotosView from './PhotosView'
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
   
 
 const errorMessage = "There was a problem, please try again later";
@@ -40,7 +35,7 @@ export default function UserView() {
         <div className="tab content">
         {topics.map((topic, i) => (
         <div className='col-3 mb-4' key={i}>       
-          <Link to={`/topicsview/${topic.topic_id}`}>
+          <Link to={`/topicsview/${topic.topic_id}/photos`}>
           <img           
           alt='Topic' 
           src={topic.image}

@@ -49,7 +49,7 @@ export default function App() {
         <Route path="/addphoto">
           <AddPhoto />
         </Route>        
-        <Route path="/topicsview/:id">
+        <Route path="/topicsview/:topic_id">
           <PhotosView />
         </Route>
         <Route path="/topicsview">
