@@ -2,6 +2,7 @@ import React from "react";
 import AddTopic from './components/AddTopic'
 import AddPhoto from './components/AddPhoto'
 import TopicsView from './components/TopicsView'
+import PhotosView from './components/PhotosView'
 
 import './App.css';
 import {
@@ -47,6 +48,9 @@ export default function App() {
         </Route>
         <Route path="/addphoto">
           <AddPhoto />
+        </Route>        
+        <Route path="/topicsview/:id">
+          <PhotosView />
         </Route>
         <Route path="/topicsview">
           <TopicsView />

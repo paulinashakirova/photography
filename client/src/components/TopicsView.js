@@ -35,28 +35,23 @@ export default function UserView() {
 
 
     return (
-    <Router>
+    
         <div className="row mt-5">          
         <div className="tab content">
         {topics.map((topic, i) => (
         <div className='col-3 mb-4' key={i}>       
-          <Link to="/photosview">
-          <img 
+          <Link to={`/topicsview/${topic.topic_id}`}>
+          <img           
           alt='Topic' 
-          src={topic.image} 
+          src={topic.image}
           className='img-fluid rounded shadow' />
            <label>{topic.theme}</label>           
           </Link>                   
         </div>
-      ))} 
-      <Switch>
-          <Route path="/photosview">
-              <PhotosView />
-          </Route>
-      </Switch>
+      ))}       
         </div>           
         </div>
-    </Router>
+    
         
     )
 }
