@@ -130,16 +130,16 @@ const deletePhoto = async (photo_id) => {
             Image
             </label>
             <input 
-            className='form-control mb-2' 
+            className="form-control mb-2" 
             name="image"             
             onChange={handleInputChange} />
           </div>
-          <div className='col form-group'>
+          <div className="col form-group">
             <label className="text-white-50">
             Price
             </label>
             <input 
-            className='form-control mb-2' 
+            className="form-control mb-2" 
             name="price"             
             onChange={handleInputChange} />
           </div> 
