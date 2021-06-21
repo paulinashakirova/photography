@@ -124,17 +124,36 @@ export default function AddTopic() {
 
       {message && <div className="alert font-monospace mb-md-0 mt-3 mt-lg-auto small text-success">{message}</div>}
     </div>
-    <div className="list-group">
+    <div className="list-group text-center">
+    <div className="row">
+    <div className="col">
+    <label className="text-secondary small">Theme</label>
+    </div>
+    <div className="col text-center">
+    <label className="text-secondary small">Topic Id</label>
+    </div>
+    <div className="col"></div>    
+    </div>
+    
     {topics.map((topic, i) => (
-        <div className="d-flex justify-content-between mb-4" key={i}>          
+        <div className="justify-content-between mb-4" key={i}>   
+        <div className="row">       
+          <div className="col">
           <label className="text-white-50">{topic.theme}</label>
+          </div>
+          <div className="col text-center">
+          <label className="text-white-50">{topic.topic_id}</label>
+          </div>
+          <div className="col">
           <button
           onClick={() => deleteTopic(topic.topic_id)}
           className="btn btn-sm btn-light bg-transparent text-white-50"
           >
           Delete
-          </button>  
-          </div>        
+          </button> 
+          </div> 
+          </div> 
+          </div>       
       ))}    
     </div>  
     

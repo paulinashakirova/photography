@@ -28,7 +28,7 @@ export default function PhotosView() {
   };
    
   return (
-        <div>
+        <div>        
          <div className="row mt-5">
       {photos.map((photo, i) => (
           <div className='col-3 mb-4 text-center' key={i}>        

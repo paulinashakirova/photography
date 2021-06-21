@@ -154,7 +154,7 @@ const deletePhoto = async (photo_id) => {
            {topics.map((topic) => (
             <option                       
             value={topic.topic_id}
-            key={topic.topic_id}>{topic.theme}</option>
+            key={topic.topic_id}>{topic.theme} {topic.topic_id}</option>
            ))}              
            </select>
                 
@@ -173,22 +173,40 @@ const deletePhoto = async (photo_id) => {
       {error && <div className="alert font-monospace mb-md-0 mt-3 mt-lg-auto small  text-warning">{error}</div>}
 
       {message && <div className="alert font-monospace mb-md-0 mt-3 mt-lg-auto small text-success">{message}</div>}
-    </div>  
-    <div className="list-group">
-<div className="row">
-{photos.map((photo, i) => (
-        <div className="mb-4 col-3" key={i}>        
+    </div> 
+      
+    <div className="list-group text-center">
+    <div className="row">
+      <div className="col">
+      <label className="text-secondary small">Title</label>
+      </div>
+      <div className="col text-center">
+      <label className="text-secondary small">Topic Id</label>
+      </div>
+      <div className="col"></div>
+    </div>
+    {photos.map((photo, i) => (
+        <div className="justify-content-between mb-4" key={i}> 
+        <div className="row">
+        <div className="col">           
           <label className="text-white-50">{photo.title}</label>
+          </div> 
+          <div className="col">
+          <p className="text-white-50">{photo.topic_id}</p>
+          </div>
+          <div className="col">
           <button
           onClick={() => deletePhoto(photo.photo_id)}
           className="btn btn-sm btn-light bg-transparent text-white-50"
           >
           Delete
-          </button>  
-          </div>                                
+          </button> 
+          </div> 
+          </div> 
+          </div>                    
        
       ))}
-</div>
+
     
     </div>
     
