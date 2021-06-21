@@ -31,21 +31,30 @@ export default function UserView() {
 
     return (
     
-        <div className="row mt-5">          
+        <div className="row mt-3">          
         <div className="tab content">
+               
         {topics.map((topic, i) => (
-        <div className='col-3 mb-4' key={i}>       
+        <div className="mb-4 text-center" key={i}>       
           <Link to={`/topicsview/${topic.topic_id}/photos`}>
+          <div className="row justify-content-center">
+          <div className="col-6">
           <img           
           alt='Topic' 
           src={topic.image}
-          className='img-fluid rounded shadow' />
-           <label>{topic.theme}</label>           
-          </Link>                   
+          className=" col-10" />
+          <label className="text-white-50">{topic.theme}</label>
+          <p className="text-white-50">{topic.description}</p>
+          </div>           
+          </div>                                  
+          </Link>        
         </div>
-      ))}       
+      ))}     
+               
+        </div>
+          
         </div>           
-        </div>
+        
     
         
     )

@@ -111,14 +111,14 @@ const deletePhoto = async (photo_id) => {
 };
 
   return (
-    <div>
-    <div>        
-      </div>
-    <div className='card card-body mt-4'>
+    <div>    
+    <div className="card card-body mt-4 bg-transparent border-secondary mb-3">
       <form onSubmit={handleSubmit}>
-        <div className='row'>            
-          <div className='col form-group'>           
-            <label>Title</label>
+        <div className="row mb-3">            
+          <div className="col form-group">           
+            <label className="text-white-50">
+            Title
+            </label>
             <input 
             className='form-control mb-2' 
             name="title" 
@@ -126,23 +126,28 @@ const deletePhoto = async (photo_id) => {
             onChange={handleInputChange} />
           </div>
           <div className='col form-group'>
-            <label>Image</label>
+            <label className="text-white-50">
+            Image
+            </label>
             <input 
             className='form-control mb-2' 
             name="image"             
             onChange={handleInputChange} />
           </div>
           <div className='col form-group'>
-            <label>Price</label>
+            <label className="text-white-50">
+            Price
+            </label>
             <input 
             className='form-control mb-2' 
             name="price"             
             onChange={handleInputChange} />
+          </div> 
           </div>          
            <select  
            name="topic_id"           
            onChange={handleInputChange}
-           className="form-select mb-2" 
+           className="form-select mb-2 bg-transparent text-white-50" 
            aria-label="Default select example"          
            >
            <option selected>Select a Topic</option>
@@ -152,34 +157,41 @@ const deletePhoto = async (photo_id) => {
             key={topic.topic_id}>{topic.theme}</option>
            ))}              
            </select>
-          </div>        
+                
         <div>
-          <label>Description</label>
+          <label className="text-white-50">Description</label>
           <textarea 
           className="form-control mb-2"
           type="text"
           name="description"           
           onChange={handleInputChange} />
         </div>
-        <button className='btn btn-primary'>Add Photo</button>
+        <button className="btn btn-light bg-transparent btn-sm mt-2 text-white-50">
+        Add Photo
+        </button>
       </form>
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="alert font-monospace mb-md-0 mt-3 mt-lg-auto small  text-warning">{error}</div>}
 
-      {message && <div className="alert alert-success">{message}</div>}
+      {message && <div className="alert font-monospace mb-md-0 mt-3 mt-lg-auto small text-success">{message}</div>}
     </div>  
-    {photos.map((photo, i) => (
-        <div className='col-3 mb-4' key={i}>         
-          <div>
-          <label>{photo.title}</label>
+    <div className="list-group">
+<div className="row">
+{photos.map((photo, i) => (
+        <div className="mb-4 col-3" key={i}>        
+          <label className="text-white-50">{photo.title}</label>
           <button
           onClick={() => deletePhoto(photo.photo_id)}
-          className="btn btn-sm btn-light"
+          className="btn btn-sm btn-light bg-transparent text-white-50"
           >
           Delete
           </button>  
           </div>                                
-        </div>
+       
       ))}
+</div>
+    
+    </div>
+    
     </div>
   )  
 }

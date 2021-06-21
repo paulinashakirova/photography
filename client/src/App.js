@@ -18,12 +18,8 @@ export default function App() {
     <Router>
     <div className="container q w-50">    
     <div className="container pt-4">
-      <div className="row">
-        <h1>Karenina Photography</h1>
-      </div>
-    </div>
     <div>
-      <nav className="bg-light">
+      <nav className="text-center mb-2 bg-gradient">
           <div className="row">
             <div className="col">
               <Link to="/addtopic">Add Topic</Link>
@@ -36,10 +32,13 @@ export default function App() {
             </div> 
         </div>
       </nav>  
-    </div>      
-      
-      {/* </div>  */}
-    
+    </div>
+     
+      <div className="row text-center mt-5">
+        <h1>Karenina Photography</h1>
+      </div>
+    </div>
+        
       
       <div className='d-flex justify-content-center'>           
       <Switch>             
