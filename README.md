@@ -20,7 +20,7 @@
   DB_PASS=YOURPASSWORD
 ```
 
-- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create a table called 'topics' in your database.
+- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create trhee tables called 'topic', 'photo' and 'cart' in your database.
 
 - Make sure you understand how the `topics` table is constructed. In your MySQL console, you can run `use photography;` and then `describe topics;` to see the structure of the students table.
 
@@ -33,40 +33,27 @@
 
 Create a webpage with the following functionality:
 
-- [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture, flora and fauna).
-- [ ] A form to add new photos on each field. There should be fields to input the title and description, separately, and a list of topics to chose where to add the new photo. Finally an input for the URL of the photo that will be represent that theme. (All these should be on the admin view).
-  - After submitting the form, the new photo should be added to the database and displayed on the user view.
+- [ ] A catalog of photos organized for topics (landscapes, portraits, travels, culture, flora, fauna, etc.).
+- [ ] A form to add new topics. There should be fields to input the theme and description of the topic, and a URL of the photo that will represent the theme.
+- [ ] A form to add new photos on each topic. There should be fields to input the title and description, separately, a list of topics to chose where to add the new photo and an input for the URL of the new photo.
+  - After submitting the form, the new topic/photo should be added to the database and displayed on a user view.
 - [ ] Each photo can be deleted with a delete button/icon. After clicking on this button, photo should be deleted from the database and the updated list of photos shown on the user view.
-- [ ] Each photo can be added to a shopping cart with an add button/icon. After clicking on this button, photo should be added to a cart, showing title and price.
-If there are some selected photos, these should add up prices and show a total.
+- [BONUS ] Each photo can be added to a shopping cart with an add button/icon. After clicking on this button, photo should be added to a cart, showing title and price.
+  If there are some selected photos, these should add up prices and show a total.
 - [ ] Style the app to make it look as polished as possible. Bootstrap is already loaded in the index.html file, so you can use it if you want to.
-- [ ] Clicking on a photo should show the photo's title, and a description at the top of the catalog. The info to display this featured photo should be obtained from a fetch request to `/topics/:theme/:id`
 
 To accomplish this, you will need to:
 
 - [ ] Finish the routes in the API server (`/routes/users.js`).
 - [ ] Finish the front end (`/client/src/`). Create as many components as you need.
 
-## Guidelines
-
-- Do not use any presentations from the class or any notes you have taken.
-- Try to do the test **without looking at code you have previously written**. If you get stuck for more than 30min, you may look at your previous code - but make sure you let your instructor know.
-- The only resources you may use online are:
-  - [MDN docs](https://developer.mozilla.org/en-US/)
-  - [Express docs](https://expressjs.com/en/api.html)
-  - [MySQL docs](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
-  - [React docs](https://reactjs.org/docs/hello-world.html)
-- Make sure you give yourself a grade before turning it in!
-
 ## Tips
 
 Suggested Process:
 
 1. Try and write the correct query in `mysql`.
-1. Use that query to finish the endpoints in `/routes/users.js`.
+1. Use that query to finish the endpoints in `/routes/topics.js and /routes/photos.js`.
 1. Test your endpoints using Postman.
 1. Call the endpoints from the front end.
 
-## Ask to Germinal
-1. In "routes" folder I have two files: "index.js" and "users.js". Do I need both of them?
-2. 
+_This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._

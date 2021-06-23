@@ -203,11 +203,9 @@ const deletePhoto = async (photo_id) => {
           </button> 
           </div> 
           </div> 
-          </div>                    
+          </div>      
        
-      ))}
-
-    
+      ))}    
     </div>
     
     </div>

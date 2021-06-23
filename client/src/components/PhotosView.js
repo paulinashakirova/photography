@@ -39,8 +39,7 @@ export default function PhotosView() {
           <label className="text-white-50">{photo.title}</label>
           <div className="row">
           <label className="text-white-50">{photo.price}€</label>
-          </div>
-          
+          </div>          
           </div>
       ))}
     </div>   

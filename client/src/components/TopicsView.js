@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PhotosView from './PhotosView'
 
 import { Link } from "react-router-dom";
   
@@ -42,7 +41,7 @@ export default function UserView() {
           <img           
           alt='Topic' 
           src={topic.image}
-          className=" col-10" />
+          className=" col-10 " />
           <label className="text-white-50">{topic.theme}</label>
           <p className="text-white-50">{topic.description}</p>
           </div>           
