@@ -20,9 +20,9 @@
   DB_PASS=YOURPASSWORD
 ```
 
-- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create trhee tables called 'topic', 'photo' and 'cart' in your database.
+- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create three tables called 'topic', 'photo' and 'cart_items' in your database.
 
-- Make sure you understand how the `topics` table is constructed. In your MySQL console, you can run `use photography;` and then `describe topics;` to see the structure of the students table.
+- Make sure you understand how the `topic` table is constructed. In your MySQL console, you can run `use photography;` and then `describe topic;` to see the structure of the topic table.
 
 ### Development
 

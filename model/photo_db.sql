@@ -1,8 +1,9 @@
 SET foreign_key_checks = 0;
 
+DROP TABLE IF EXISTS `cart_items`;
 DROP TABLE IF EXISTS `topic`;
 DROP TABLE IF EXISTS `photo`;
-DROP TABLE IF EXISTS `cart_items`;
+
 
 SET foreign_key_checks = 1;
 
@@ -25,14 +26,6 @@ CREATE TABLE `photo` (
 	PRIMARY KEY (`photo_id`)
 );
 
-CREATE TABLE `cart_items` (
-	`cart_item_id` INT NOT NULL AUTO_INCREMENT,
-	`photo_id` INT(255) NOT NULL,
-	`total` INT(255) NOT NULL,
-	PRIMARY KEY (`cart_item_id`)
-);
-
 ALTER TABLE `photo` ADD CONSTRAINT `photo_fk0` FOREIGN KEY (`topic_id`) REFERENCES `topic`(`topic_id`);
 
-ALTER TABLE `cart_items` ADD CONSTRAINT `cart_items_fk0` FOREIGN KEY (`photo_id`) REFERENCES `photo`(`photo_id`);
 
