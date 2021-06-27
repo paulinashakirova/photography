@@ -1,62 +1,65 @@
 var express = require('express');
 var router = express.Router();
-const db = require("../model/helper");
+var models = require('../models');
 
 /* GET topic listing. */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   try {
-    const results = await db("SELECT * FROM topic;");
-    res.send(results.data);
+    const topics = await models.Topic.findAll({
+      attributes: ['id', 'theme', 'description', 'image']
+      // include: { model: models.Photo, attributes: ['title'] }
+    });
+    res.send(topics);
   } catch (err) {
     res.status(500).send(err);
-  }  
+  }
 });
 
 // GET one topic
-router.get("/:topic_id", async (req, res, next) => {
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const results = await db(
-      `select topic_id, theme, description, image from topic where topic_id = ${req.params.topic_id};`
-    );
-    res.send(results.data);
+    const topic = await models.Topic.findOne({
+      where: { id }
+    });
+    res.send(topic);
   } catch (err) {
     res.status(404).send(err);
   }
 });
 
 // INSERT a new topic into the DB
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res) => {
+  const { theme, description, image } = req.body;
   try {
-    await db(       
-      `insert into topic (theme, description, image) values ('${req.body.theme}', '${req.body.description}', '${req.body.image}');`
-    );
-    res.send({ msg: "Topic inserted" });
+    const topic = await models.Topic.create({ theme, description, image });
+    res.send(topic);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+//Delete a topic
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await models.Topic.destroy({
+      where: { id }
+    });
+    res.send({ msg: 'deleted' });
   } catch (err) {
     res.status(404).send(err);
   }
 });
 
-//Delete a topic 
-router.delete("/:topic_id", async (req, res) => {
-try{
-  await db(
-    `delete from topic where topic_id = ${req.params.topic_id};`);
-    res.send({ msg: "Topic deleted" });
-} catch (err) {
-  res.status(404).send(err);
-}  
-});
-
-/* GET photo listing. */
-router.get('/:topic_id/photos', async (req, res, next) => {
-  try {
-    const results = await db(`SELECT * FROM photo where topic_id = ${req.params.topic_id};`);
-    res.send(results.data);
-  } catch (err) {
-    res.status(500).send(err);
-  }  
-});
-
-
+// /* GET photo listing. */
+// router.get('/:topic_id/photos', async (req, res, next) => {
+//   try {
+//     const results = await models(`SELECT * FROM photo where topic_id = ${req.params.topic_id};`);
+//     res.send(results.data);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
 module.exports = router;
