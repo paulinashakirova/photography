@@ -68,8 +68,8 @@ router.put('/:id/photos', async (req, res) => {
   const { photos } = req.body;
   try {
     const topic = await models.Topic.findOne({ where: { id } });
-    const data = await topic.addPhoto(topic);
-    res.send(data);
+    const photo = await topic.addPhoto(topic);
+    res.send(photo);
   } catch (err) {
     res.status(500).send(err);
   }
