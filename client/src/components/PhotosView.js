@@ -7,24 +7,24 @@ export default function PhotosView() {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState('');
   const { topic_id } = useParams();
+  // const topic_id = 1;
 
   // Get all photos
   useEffect(() => {
+    const getPhotos = async () => {
+      setError('');
+      try {
+        const response = await fetch(`/topics/${topic_id}/photos`);
+        if (!response.ok) throw { message: errorMessage };
+
+        const json = await response.json();
+        setPhotos(json);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
     getPhotos();
   }, [topic_id]);
-
-  const getPhotos = async () => {
-    setError('');
-    try {
-      const response = await fetch(`/topics/${topic_id}/photos`);
-      if (!response.ok) throw { message: errorMessage };
-
-      const json = await response.json();
-      setPhotos(json);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
 
   return (
     <div>
