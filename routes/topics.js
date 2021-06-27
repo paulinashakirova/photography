@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
   try {
     const topics = await models.Topic.findAll({
       attributes: ['id', 'theme', 'description', 'image']
-      // include: { model: models.Photo, attributes: ['title'] }
     });
     res.send(topics);
   } catch (err) {
@@ -46,7 +45,7 @@ router.delete('/:id', async (req, res) => {
     await models.Topic.destroy({
       where: { id }
     });
-    res.send({ msg: 'deleted' });
+    res.send({ msg: 'Topic deleted' });
   } catch (err) {
     res.status(404).send(err);
   }
