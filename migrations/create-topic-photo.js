@@ -6,7 +6,7 @@ module.exports = {
       TopicId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Photos',
+          model: 'Topics',
           key: 'id'
         },
         allowNull: false
@@ -14,7 +14,7 @@ module.exports = {
       PhotoId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Topics',
+          model: 'Photos',
           key: 'id'
         },
         allowNull: false

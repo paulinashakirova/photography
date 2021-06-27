@@ -50,15 +50,29 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
-
-// /* GET photo listing. */
-// router.get('/:topic_id/photos', async (req, res, next) => {
-//   try {
-//     const results = await models(`SELECT * FROM photo where topic_id = ${req.params.topic_id};`);
-//     res.send(results.data);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// });
+//photos=actors,topics=movies
+router.post('/:id/photos', async (req, res) => {
+  const { id } = req.params;
+  const { title, description, image, price } = req.body;
+  try {
+    const topic = await models.Topic.findOne({ where: { id } });
+    const data = await topic.createPhoto({ title, description, image, price });
+    res.send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+//how do i use put?
+router.put('/:id/photos', async (req, res) => {
+  const { id } = req.params;
+  const { photos } = req.body;
+  try {
+    const topic = await models.Topic.findOne({ where: { id } });
+    const data = await topic.addPhoto(topic);
+    res.send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 module.exports = router;
