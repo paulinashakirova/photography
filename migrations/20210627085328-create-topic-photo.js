@@ -9,7 +9,9 @@ module.exports = {
           model: 'Topics',
           key: 'id'
         },
-        allowNull: false
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       PhotoId: {
         type: Sequelize.INTEGER,
@@ -17,7 +19,9 @@ module.exports = {
           model: 'Photos',
           key: 'id'
         },
-        allowNull: false
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

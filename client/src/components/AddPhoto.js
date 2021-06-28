@@ -4,8 +4,6 @@ const errorMessage = 'There was a problem, please try again later';
 
 export default function AddPhoto() {
   const [topics, setTopics] = useState([]);
-
-  //Add Photo states
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [photos, setPhotos] = useState([]);

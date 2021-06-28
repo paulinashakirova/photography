@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 // GET one topic
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
+  // console.log('the id is', id);
   try {
     const topic = await models.Topic.findOne({
       where: { id }
@@ -41,7 +42,7 @@ router.post('/', async (req, res) => {
 //Delete a topic
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  console.log('the id is', id);
+  // console.log('the id is', id);
   try {
     await models.Topic.destroy({
       where: { id }
