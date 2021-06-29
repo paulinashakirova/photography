@@ -7,6 +7,9 @@ router.get('/', async (req, res) => {
   try {
     const photos = await models.Photo.findAll({
       attributes: ['id', 'title', 'description', 'image', 'price']
+      // include: {
+      //   model: 'Topic'
+      // }
     });
     res.send(photos);
   } catch (err) {

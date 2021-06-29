@@ -3,10 +3,22 @@ var router = express.Router();
 var models = require('../models');
 
 /* GET topic listing. */
+// console.log((await Ship.findAll({ include: 'leader' })).toJSON());
+// // Or you can pass an object specifying the model and alias:
+// console.log((await Ship.findAll({
+//   include: {
+//     model: Captain,
+//     as: 'leader'
+//   }
+// })).toJSON());
 router.get('/', async (req, res) => {
   try {
     const topics = await models.Topic.findAll({
       attributes: ['id', 'theme', 'description', 'image']
+      // include: {
+      //   model: 'Photo'
+      // as: 'Photo'
+      // }
     });
     res.send(topics);
   } catch (err) {

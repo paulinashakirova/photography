@@ -6,7 +6,7 @@ const errorMessage = 'There was a problem, please try again later';
 export default function PhotosView() {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState('');
-  const { topic_id } = useParams();
+  const { id } = useParams();
   // const topic_id = 1;
 
   // Get all photos
@@ -14,7 +14,8 @@ export default function PhotosView() {
     const getPhotos = async () => {
       setError('');
       try {
-        const response = await fetch(`/topics/${topic_id}/photos`);
+        //i wanted to try to get all photos belonging to topics
+        const response = await fetch(`/topics/${id}/photos`);
         if (!response.ok) throw { message: errorMessage };
 
         const json = await response.json();
@@ -24,7 +25,7 @@ export default function PhotosView() {
       }
     };
     getPhotos();
-  }, [topic_id]);
+  }, [id]);
 
   return (
     <div>
