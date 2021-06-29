@@ -2,7 +2,6 @@ import React from 'react';
 import AddTopic from './components/AddTopic';
 import AddPhoto from './components/AddPhoto';
 import TopicsView from './components/TopicsView';
-import PhotosView from './components/PhotosView';
 
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -24,9 +23,7 @@ export default function App() {
                 <div className='col'>
                   <Link to='/topicsview'>Topics View</Link>
                 </div>
-                <div className='col'>
-                  <Link to='/photosview'>Photos View</Link>
-                </div>
+                <div className='col'>{/* <Link to='/photosview'>Photos View</Link> */}</div>
               </div>
             </nav>
           </div>
@@ -44,13 +41,10 @@ export default function App() {
             <Route path='/addphoto'>
               <AddPhoto />
             </Route>
-            {/* maybe i need another route to show all topics the photo belongs to/. */}
-            <Route path='/topicsview/:topic_id'>
-              <PhotosView />
-            </Route>
-            <Route path='/topicsview'>
-              <TopicsView />
-            </Route>
+            {/* //i am not sure about the next line */}
+            <Route path='/topicsview/:topic_id'></Route>
+
+            <TopicsView />
           </Switch>
         </div>
       </div>

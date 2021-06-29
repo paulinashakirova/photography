@@ -37,7 +37,8 @@ export default function AddPhoto() {
     setError('');
     setMessage('');
     try {
-      const response = await fetch('/photos', {
+      //NEXT LINE
+      const response = await fetch(`topics/${[values.topic_id]}/photos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -58,8 +59,11 @@ export default function AddPhoto() {
   const getPhotos = async () => {
     setError('');
     try {
-      const response = await fetch('/photos');
-      if (!response.ok) throw { message: errorMessage };
+      //NEXT LINE
+      const response = await fetch(`topics/${[values.topic_id]}/photos`);
+      //previous line
+      console.log(values.topic_id);
+      if (!response.ok) throw { message: 'you can do it' };
 
       const json = await response.json();
       setPhotos(json);
@@ -89,9 +93,7 @@ export default function AddPhoto() {
   const deletePhoto = async (id) => {
     setError('');
     setMessage('');
-    // delete task from database
-    // upon success, update tasks
-    // upon failure, show error message
+
     try {
       const response = await fetch(`/photos/${id}`, {
         method: 'DELETE'
@@ -169,8 +171,8 @@ export default function AddPhoto() {
           </div>
           <div className='col'></div>
         </div>
-        {photos.map((photo, i) => (
-          <div className='justify-content-between mb-4' key={i}>
+        {photos.map((photo) => (
+          <div className='justify-content-between mb-4' key={photo.id}>
             <div className='row'>
               <div className='col'>
                 <label className='text-white-50'>{photo.title}</label>

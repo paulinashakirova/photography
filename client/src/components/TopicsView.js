@@ -32,6 +32,7 @@ export default function UserView() {
         {topics.map((topic, i) => (
           <div className='mb-4 text-center' key={i}>
             {/* this link is not working */}
+            {/* it returns me all photos instead of only by id */}
             <Link to={`/topicsview/${topic.id}/photos`}>
               <div className='row justify-content-center'>
                 <div className='col-6'>

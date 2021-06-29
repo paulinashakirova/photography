@@ -7,9 +7,6 @@ router.get('/', async (req, res) => {
   try {
     const photos = await models.Photo.findAll({
       attributes: ['id', 'title', 'description', 'image', 'price']
-      // include: {
-      //   model: 'Topic'
-      // }
     });
     res.send(photos);
   } catch (err) {
@@ -35,11 +32,13 @@ router.post('/', async (req, res) => {
   const { title, description, image, price } = req.body;
   try {
     const photo = await models.Photo.create({ title, description, image, price });
+    //associate photo with topic
     res.send(photo);
   } catch (err) {
     res.status(500).send(err);
   }
 });
+
 router.post('/:id/topics', async (req, res) => {
   const { id } = req.params;
   const { theme, description, image } = req.body;
@@ -63,18 +62,17 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
+router.get('/:id/topics', async (req, res) => {
+  const { id } = req.params;
 
-// //how do i use put?
-// router.put('/:id/topics', async (req, res) => {
-//   const { id } = req.params;
-//   const { topics } = req.body;
-//   try {
-//     const photo = await models.Photo.findOne({ where: { id } });
-//     const topic = await photo.addTopic(photo);
-//     res.send(topic);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// });
+  try {
+    const photo = await models.Photo.findAll({
+      where: { id }
+    });
+    res.send(photo);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+});
 
 module.exports = router;

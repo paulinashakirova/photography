@@ -2,23 +2,10 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 
-/* GET topic listing. */
-// console.log((await Ship.findAll({ include: 'leader' })).toJSON());
-// // Or you can pass an object specifying the model and alias:
-// console.log((await Ship.findAll({
-//   include: {
-//     model: Captain,
-//     as: 'leader'
-//   }
-// })).toJSON());
 router.get('/', async (req, res) => {
   try {
     const topics = await models.Topic.findAll({
       attributes: ['id', 'theme', 'description', 'image']
-      // include: {
-      //   model: 'Photo'
-      // as: 'Photo'
-      // }
     });
     res.send(topics);
   } catch (err) {
@@ -50,33 +37,7 @@ router.post('/', async (req, res) => {
     res.status(500).send(err);
   }
 });
-
-//Delete a topic
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  // console.log('the id is', id);
-  try {
-    await models.Topic.destroy({
-      where: { id }
-    });
-    res.send({ msg: 'Topic deleted' });
-  } catch (err) {
-    res.status(404).send(err);
-  }
-});
-router.get('/:id/photos', async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const topic = await models.Topic.findAll({
-      where: { id }
-    });
-    res.send(topic);
-  } catch (err) {
-    res.status(404).send(err);
-  }
-});
-//Do i need to create a GET point here???
+//i think something is wrong there as well
 router.post('/:id/photos', async (req, res) => {
   const { id } = req.params;
   const { title, description, image, price } = req.body;
@@ -88,16 +49,30 @@ router.post('/:id/photos', async (req, res) => {
     res.status(500).send(err);
   }
 });
-//how do i use put?
-router.put('/:id/photos', async (req, res) => {
+//Delete a topic
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const { photos } = req.body;
   try {
-    const topic = await models.Topic.findOne({ where: { id } });
-    const photo = await topic.addPhoto(topic);
-    res.send(photo);
+    await models.Topic.destroy({
+      where: { id }
+    });
+    res.send({ msg: 'Topic deleted' });
   } catch (err) {
-    res.status(500).send(err);
+    res.status(404).send(err);
+  }
+});
+//when you find one topic pls give me all photos from that topic
+router.get('/:id/photos', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const topic = await models.Topic.findOne({
+      where: { id }
+    });
+    const photos = await topic.getPhotos();
+    res.send(photos);
+  } catch (err) {
+    res.status(404).send(err);
   }
 });
 
