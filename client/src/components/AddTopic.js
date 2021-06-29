@@ -153,11 +153,11 @@ export default function AddTopic() {
                 <label className='text-white-50'>{topic.theme}</label>
               </div>
               <div className='col text-center'>
-                <label className='text-white-50'>{topic.topic_id}</label>
+                <label className='text-white-50'>{topic.id}</label>
               </div>
               <div className='col'>
                 <button
-                  onClick={() => deleteTopic(topic.topic_id)}
+                  onClick={() => deleteTopic(topic.id)}
                   className='btn btn-sm btn-light bg-transparent text-white-50'>
                   Delete
                 </button>

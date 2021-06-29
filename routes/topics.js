@@ -52,7 +52,19 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
-//photos=actors,topics=movies
+router.get('/:id/photos', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const topic = await models.Topic.findAll({
+      where: { id }
+    });
+    res.send(topic);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+});
+//Do i need to create a GET point here???
 router.post('/:id/photos', async (req, res) => {
   const { id } = req.params;
   const { title, description, image, price } = req.body;

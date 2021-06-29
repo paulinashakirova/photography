@@ -165,7 +165,7 @@ export default function AddPhoto() {
             <label className='text-secondary small'>Title</label>
           </div>
           <div className='col text-center'>
-            <label className='text-secondary small'>Topic Id</label>
+            <label className='text-secondary small'>Photo Id</label>
           </div>
           <div className='col'></div>
         </div>
@@ -176,7 +176,7 @@ export default function AddPhoto() {
                 <label className='text-white-50'>{photo.title}</label>
               </div>
               <div className='col'>
-                <p className='text-white-50'>{photo.topic_id}</p>
+                <p className='text-white-50'>{photo.id}</p>
               </div>
               <div className='col'>
                 <button
