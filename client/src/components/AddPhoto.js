@@ -38,7 +38,7 @@ export default function AddPhoto() {
     setMessage('');
     try {
       //NEXT LINE
-      const response = await fetch(`topics/${[values.topic_id]}/photos`, {
+      const response = await fetch(`topics/${values.topic_id}/photos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ export default function AddPhoto() {
     setError('');
     try {
       //NEXT LINE
-      const response = await fetch(`topics/${[values.topic_id]}/photos`);
+      const response = await fetch(`topics/${topics.topic_id.id}/photos`);
       //previous line
       console.log(values.topic_id);
       if (!response.ok) throw { message: 'you can do it' };
@@ -135,9 +135,10 @@ export default function AddPhoto() {
             aria-label='Default select example'>
             <option selected>Select a Topic</option>
             {topics.map((topic) => (
-              <option value={topic.topic_id} key={topic.topic_id}>
-                {topic.theme} {topic.topic_id}
+              <option value={topic.id} key={topic.topic_id}>
+                {topic.theme}
               </option>
+              //  console.log({topic.topic_id})
             ))}
           </select>
 

@@ -74,5 +74,18 @@ router.get('/:id/topics', async (req, res) => {
     res.status(404).send(err);
   }
 });
+router.get('/photos', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const photo = await models.Photo.findAll({
+      where: { id }
+    });
+
+    res.send(photo);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+});
 
 module.exports = router;

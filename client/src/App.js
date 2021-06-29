@@ -2,6 +2,7 @@ import React from 'react';
 import AddTopic from './components/AddTopic';
 import AddPhoto from './components/AddPhoto';
 import TopicsView from './components/TopicsView';
+import ImagesView from './components/ImagesView';
 
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -42,8 +43,10 @@ export default function App() {
               <AddPhoto />
             </Route>
             {/* //i am not sure about the next line */}
-            <Route path='/topicsview/:topic_id'></Route>
-
+            {/* WHERE DO I GET TOPIC FROM? */}
+            <Route path='/topicsview/:topic_id/photos'>
+              <ImagesView />
+            </Route>
             <TopicsView />
           </Switch>
         </div>
