@@ -6,6 +6,7 @@ const errorMessage = 'There was a problem, please try again later';
 
 export default function UserView() {
   const [topics, setTopics] = useState([]);
+
   const [error, setError] = useState('');
 
   //Get all the Topics
@@ -25,6 +26,7 @@ export default function UserView() {
       setError(error.message);
     }
   };
+  //getPhotos by id topics?
 
   return (
     <div className='row mt-3'>
@@ -33,7 +35,7 @@ export default function UserView() {
           <div className='mb-4 text-center' key={i}>
             {/* this link is not working */}
             {/* it returns me all photos instead of only by id */}
-            <Link to={`/topicsview/${topic.id}/photos`}>
+            <Link to={`/topicsview/${topics.topic_id}/photos`}>
               <div className='row justify-content-center'>
                 <div className='col-6'>
                   <img alt='Topic' src={topic.image} className=' col-10 ' />

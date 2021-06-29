@@ -17,7 +17,7 @@ export default function AddPhoto() {
 
   useEffect(() => {
     getPhotos();
-  }, []);
+  }, [values.topic_id]);
 
   const handleInputChange = ({ target }) => {
     const { value, name } = target;
@@ -60,9 +60,10 @@ export default function AddPhoto() {
     setError('');
     try {
       //NEXT LINE
-      const response = await fetch(`topics/${topics.topic_id.id}/photos`);
+      // const response = await fetch(`topics/${topics.id}/photos`);
+      const response = await fetch(`/photos`);
       //previous line
-      console.log(values.topic_id);
+      // console.log(values.topic_id);
       if (!response.ok) throw { message: 'you can do it' };
 
       const json = await response.json();
@@ -135,7 +136,7 @@ export default function AddPhoto() {
             aria-label='Default select example'>
             <option selected>Select a Topic</option>
             {topics.map((topic) => (
-              <option value={topic.id} key={topic.topic_id}>
+              <option value={topic.id} key={topic.id}>
                 {topic.theme}
               </option>
               //  console.log({topic.topic_id})
