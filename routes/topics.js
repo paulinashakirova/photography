@@ -61,6 +61,7 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
+
 //when you find one topic pls give me all photos from that topic
 router.get('/:id/photos', async (req, res) => {
   const { id } = req.params;

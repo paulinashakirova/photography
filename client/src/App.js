@@ -8,6 +8,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default function App() {
+  //
   return (
     <Router>
       <div className='container q w-50'>
@@ -45,6 +46,7 @@ export default function App() {
             {/* //i am not sure about the next line */}
             {/* WHERE DO I GET TOPIC FROM? */}
             <Route path='/topicsview/:topic_id/photos'>
+              {/* <Link to={`/topicsview/${topic.id}/photos`}> */}
               <ImagesView />
             </Route>
             <TopicsView />

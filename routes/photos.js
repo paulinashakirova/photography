@@ -62,6 +62,9 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
+{
+  /* <Link to={`/photosview/${topic.id}/photos`}> */
+}
 router.get('/:id/topics', async (req, res) => {
   const { id } = req.params;
 
