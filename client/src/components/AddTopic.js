@@ -104,29 +104,31 @@ export default function AddTopic() {
 
   return (
     <div>
-      <div className='card card-body mt-4 bg-transparent border-secondary mb-3'>
-        <form onSubmit={handleSubmit}>
-          <div className='row'>
-            <div className='col form-group'>
-              <label className='text-white-50'>Theme</label>
-              <input className='form-control mb-2' name='theme' type='text' onChange={handleInputChange} />
+      <div className='container'>
+        <div className='card card-body mt-4 bg-transparent border-secondary mb-3'>
+          <form onSubmit={handleSubmit}>
+            <div className='row'>
+              <div className='col form-group'>
+                <label className='text-white-50'>Theme</label>
+                <input className='form-control mb-2' name='theme' type='text' onChange={handleInputChange} />
+              </div>
+              <div className='col form-group'>
+                <label className='text-white-50'>Image</label>
+                <input className='form-control mb-2' type='text' name='image' onChange={handleInputChange} />
+              </div>
             </div>
-            <div className='col form-group'>
-              <label className='text-white-50'>Image</label>
-              <input className='form-control mb-2' type='text' name='image' onChange={handleInputChange} />
+            <div>
+              <label className='text-white-50'>Description</label>
+              <textarea
+                className='form-control mb-2'
+                type='text'
+                name='description'
+                onChange={handleInputChange}
+              />
             </div>
-          </div>
-          <div>
-            <label className='text-white-50'>Description</label>
-            <textarea
-              className='form-control mb-2'
-              type='text'
-              name='description'
-              onChange={handleInputChange}
-            />
-          </div>
-          <button className='btn btn-light bg-transparent btn-sm mt-2 text-white-50'>Add Topic</button>
-        </form>
+            <button className='btn btn-light bg-transparent btn-sm mt-2 text-white-50'>Add Topic</button>
+          </form>
+        </div>
         {error && (
           <div className='alert font-monospace mb-md-0 mt-3 mt-lg-auto small  text-warning'>{error}</div>
         )}
@@ -135,36 +137,38 @@ export default function AddTopic() {
           <div className='alert font-monospace mb-md-0 mt-3 mt-lg-auto small text-success'>{message}</div>
         )}
       </div>
-      <div className='list-group text-center'>
-        <div className='row'>
-          <div className='col'>
-            <label className='text-secondary small'>Theme</label>
+      <div className='container'>
+        <div className='list-group text-center'>
+          <div className='row'>
+            <div className='col'>
+              <label className='text-secondary small'>Theme</label>
+            </div>
+            <div className='col text-center'>
+              <label className='text-secondary small'>Topic Id</label>
+            </div>
+            <div className='col'></div>
           </div>
-          <div className='col text-center'>
-            <label className='text-secondary small'>Topic Id</label>
-          </div>
-          <div className='col'></div>
-        </div>
 
-        {topics.map((topic, i) => (
-          <div className='justify-content-between mb-4' key={i}>
-            <div className='row'>
-              <div className='col'>
-                <label className='text-white-50'>{topic.theme}</label>
-              </div>
-              <div className='col text-center'>
-                <label className='text-white-50'>{topic.id}</label>
-              </div>
-              <div className='col'>
-                <button
-                  onClick={() => deleteTopic(topic.id)}
-                  className='btn btn-sm btn-light bg-transparent text-white-50'>
-                  Delete
-                </button>
+          {topics.map((topic, i) => (
+            <div className='justify-content-between mb-4' key={i}>
+              <div className='row'>
+                <div className='col'>
+                  <label className='text-white-50'>{topic.theme}</label>
+                </div>
+                <div className='col text-center'>
+                  <label className='text-white-50'>{topic.id}</label>
+                </div>
+                <div className='col'>
+                  <button
+                    onClick={() => deleteTopic(topic.id)}
+                    className='btn btn-sm btn-light bg-transparent text-white-50'>
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ export default function UserView() {
   //getPhotos by id topics?
 
   return (
-    <div className='row mt-3'>
+    <div className='container'>
       <div className='tab content'>
         {/* {
             data
@@ -43,22 +43,28 @@ export default function UserView() {
               ))}
         </div> 
         */}
-        {topics.map((topic) => (
-          <div className='mb-4 text-center' key={topic.id}>
-            {/* this link is not working */}
-            {/* it returns me all photos instead of only by id */}
-            <Link to={`/topicsview/${topic.id}/photos`}>
-              <div className='row justify-content-center'>
-                <div className='col-6'>
-                  <img alt='Topic' src={topic.image} className=' col-10 ' />
-                  <label className='text-white-50'>{topic.theme}</label>
-                  <p className='text-white-50'>{topic.description}</p>
+      </div>
+      {topics.map((topic) => (
+        <div className=' mb-4 text-center' key={topic.id}>
+          <Link to={`/topicsview/${topic.id}/photos`}>
+            <div className='container'>
+              <div className='row'>
+                <div className='col'>
+                  <img className='img-thumbnail col-8' alt='Topic' src={topic.image} />
+                  <div className='row text-decoration-none'>
+                    <label className='text-white-50  text-center'>
+                      <div>Topic Name: {topic.theme}</div>
+                    </label>
+                    <label className='text-white-50   text-center'>
+                      <div>Topic Description: {topic.description}</div>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </Link>
-          </div>
-        ))}
-      </div>
+            </div>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
