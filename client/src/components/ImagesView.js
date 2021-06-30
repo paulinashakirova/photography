@@ -20,7 +20,6 @@ export default function UserViewPhotos() {
       // const response = await fetch(`/photos`);
       //i think it should be mext line. but for some reson it displays correct topic but it doesnt filter by id
       const response = await fetch(`/topics/${topic_id}/photos`);
-      // fetch(`/photos/${photos.id}`);
       if (!response.ok) throw { message: errorMessage };
 
       const json = await response.json();
@@ -41,16 +40,10 @@ export default function UserViewPhotos() {
               <Link to={`/photosview/${photo.id}/topics`}>
                 <div className='row justify-content-center'>
                   <div className='col-6'>
-                    <img alt='' src={photo.image} className=' col-8 ' />
-                    <div className='row'>
-                      <label className='text-white-50'>Title: {photo.title}</label>
-                    </div>
-                    <div className='row'>
-                      <label className='text-white-50'>Price{photo.price}</label>
-                    </div>
-                    <div className='row'>
-                      <label className='text-white-50'>Description{photo.description}</label>
-                    </div>
+                    <img alt='' src={photo.image} className=' col-10 ' />
+                    <label className='text-white-50'>{photo.title}</label>
+                    <label className='text-white-50'>{photo.price}</label>
+                    <p className='text-white-50'>{photo.description}</p>
                   </div>
                 </div>
               </Link>
