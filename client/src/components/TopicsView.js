@@ -30,32 +30,20 @@ export default function UserView() {
   //getPhotos by id topics?
 
   return (
-    <div className='container'>
-      <div className='tab content'>
-        {/* {
-            data
-              .filter((list) => list.name === name)
-              .map((list) => (
-                <div className="full-card" key={ list.id }>
-                  <h2>Name: {list.name}</h2>
-                  <h4>Category: {list.category}</h4>
-                </div>
-              ))}
-        </div> 
-        */}
-      </div>
+    <div>
+      <div></div>
       {topics.map((topic) => (
-        <div className=' mb-4 text-center' key={topic.id}>
+        <div key={topic.id}>
           <Link to={`/topicsview/${topic.id}/photos`}>
-            <div className='container'>
-              <div className='row'>
-                <div className='col'>
-                  <img className='img-thumbnail col-8' alt='Topic' src={topic.image} />
-                  <div className='row text-decoration-none'>
-                    <label className='text-white-50  text-center'>
+            <div>
+              <div>
+                <div>
+                  <img alt='Topic' src={topic.image} />
+                  <div>
+                    <label>
                       <div>Topic Name: {topic.theme}</div>
                     </label>
-                    <label className='text-white-50   text-center'>
+                    <label>
                       <div>Topic Description: {topic.description}</div>
                     </label>
                   </div>
@@ -68,19 +56,40 @@ export default function UserView() {
     </div>
   );
 }
-
-// {topics.map((topic, i) => (
-//   <div className='mb-4 text-center' key={i}>
-//     {/* this link is not working */}
-//     {/* it returns me all photos instead of only by id */}
+//----------------------------------------------------------------//
+// {/* <div className='container'>
+// <div className='tab content'>
+//   {/* {
+//       data
+//         .filter((list) => list.name === name)
+//         .map((list) => (
+//           <div className="full-card" key={ list.id }>
+//             <h2>Name: {list.name}</h2>
+//             <h4>Category: {list.category}</h4>
+//           </div>
+//         ))}
+//   </div>
+//   */}
+// </div>
+// {topics.map((topic) => (
+//   <div className=' mb-4 text-center' key={topic.id}>
 //     <Link to={`/topicsview/${topic.id}/photos`}>
-//       <div className='row justify-content-center'>
-//         <div className='col-6'>
-//           <img alt='Topic' src={topic.image} className=' col-10 ' />
-//           <label className='text-white-50'>{topic.theme}</label>
-//           <p className='text-white-50'>{topic.description}</p>
+//       <div className='container'>
+//         <div className='row'>
+//           <div className='col'>
+//             <img className='img-thumbnail col-8' alt='Topic' src={topic.image} />
+//             <div className='row text-decoration-none'>
+//               <label className='text-white-50  text-center'>
+//                 <div>Topic Name: {topic.theme}</div>
+//               </label>
+//               <label className='text-white-50   text-center'>
+//                 <div>Topic Description: {topic.description}</div>
+//               </label>
+//             </div>
+//           </div>
 //         </div>
 //       </div>
 //     </Link>
 //   </div>
 // ))}
+// </div> */}

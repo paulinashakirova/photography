@@ -104,21 +104,21 @@ export default function AddTopic() {
 
   return (
     <div>
-      <div className='container'>
-        <div className='card card-body mt-4 bg-transparent border-secondary mb-3'>
+      <div>
+        <div>
           <form onSubmit={handleSubmit}>
             <div className='row'>
               <div className='col form-group'>
-                <label className='text-white-50'>Theme</label>
+                <label className='text-black-50'>Theme</label>
                 <input className='form-control mb-2' name='theme' type='text' onChange={handleInputChange} />
               </div>
               <div className='col form-group'>
-                <label className='text-white-50'>Image</label>
+                <label className='text-black-50'>Image</label>
                 <input className='form-control mb-2' type='text' name='image' onChange={handleInputChange} />
               </div>
             </div>
             <div>
-              <label className='text-white-50'>Description</label>
+              <label className='text-black-50'>Description</label>
               <textarea
                 className='form-control mb-2'
                 type='text'
@@ -126,7 +126,7 @@ export default function AddTopic() {
                 onChange={handleInputChange}
               />
             </div>
-            <button className='btn btn-light bg-transparent btn-sm mt-2 text-white-50'>Add Topic</button>
+            <button className='btn btn-light bg-transparent btn-sm mt-2 text-black-50'>Add Topic</button>
           </form>
         </div>
         {error && (
@@ -153,15 +153,15 @@ export default function AddTopic() {
             <div className='justify-content-between mb-4' key={i}>
               <div className='row'>
                 <div className='col'>
-                  <label className='text-white-50'>{topic.theme}</label>
+                  <label className='text-black-50'>{topic.theme}</label>
                 </div>
                 <div className='col text-center'>
-                  <label className='text-white-50'>{topic.id}</label>
+                  <label className='text-black-50'>{topic.id}</label>
                 </div>
                 <div className='col'>
                   <button
                     onClick={() => deleteTopic(topic.id)}
-                    className='btn btn-sm btn-light bg-transparent text-white-50'>
+                    className='btn btn-sm btn-light bg-transparent text-black-50'>
                     Delete
                   </button>
                 </div>

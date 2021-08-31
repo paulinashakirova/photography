@@ -38,7 +38,8 @@ router.post('/', async (req, res) => {
     res.status(500).send(err);
   }
 });
-
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 router.post('/:id/topics', async (req, res) => {
   const { id } = req.params;
   const { theme, description, image } = req.body;
@@ -50,6 +51,7 @@ router.post('/:id/topics', async (req, res) => {
     res.status(500).send(err);
   }
 });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Delete a photo
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
@@ -62,9 +64,7 @@ router.delete('/:id', async (req, res) => {
     res.status(404).send(err);
   }
 });
-{
-  /* <Link to={`/photosview/${topic.id}/photos`}> */
-}
+
 router.get('/:id/topics', async (req, res) => {
   const { id } = req.params;
 
