@@ -107,61 +107,61 @@ export default function AddTopic() {
       <div>
         <div>
           <form onSubmit={handleSubmit}>
-            <div className='row'>
-              <div className='col form-group'>
-                <label className='text-black-50'>Theme</label>
-                <input className='form-control mb-2' name='theme' type='text' onChange={handleInputChange} />
+            <div className=''>
+              <div className=''>
+                <label className=''>Theme</label>
+                <input className='' name='theme' type='text' onChange={handleInputChange} />
               </div>
-              <div className='col form-group'>
-                <label className='text-black-50'>Image</label>
-                <input className='form-control mb-2' type='text' name='image' onChange={handleInputChange} />
+              <div className=''>
+                <label className=''>Image</label>
+                <input className='' type='text' name='image' onChange={handleInputChange} />
               </div>
             </div>
             <div>
-              <label className='text-black-50'>Description</label>
+              <label className=''>Description</label>
               <textarea
-                className='form-control mb-2'
+                className=''
                 type='text'
                 name='description'
                 onChange={handleInputChange}
               />
             </div>
-            <button className='btn btn-light bg-transparent btn-sm mt-2 text-black-50'>Add Topic</button>
+            <button className=''>Add Topic</button>
           </form>
         </div>
         {error && (
-          <div className='alert font-monospace mb-md-0 mt-3 mt-lg-auto small  text-warning'>{error}</div>
+          <div className=''>{error}</div>
         )}
 
         {message && (
-          <div className='alert font-monospace mb-md-0 mt-3 mt-lg-auto small text-success'>{message}</div>
+          <div className=''>{message}</div>
         )}
       </div>
-      <div className='container'>
-        <div className='list-group text-center'>
-          <div className='row'>
-            <div className='col'>
-              <label className='text-secondary small'>Theme</label>
+      <div className=''>
+        <div className=''>
+          <div className=''>
+            <div className=''>
+              <label className=''>Theme</label>
             </div>
-            <div className='col text-center'>
-              <label className='text-secondary small'>Topic Id</label>
+            <div className=''>
+              <label className=''>Topic Id</label>
             </div>
-            <div className='col'></div>
+            <div className=''></div>
           </div>
 
           {topics.map((topic, i) => (
-            <div className='justify-content-between mb-4' key={i}>
-              <div className='row'>
-                <div className='col'>
-                  <label className='text-black-50'>{topic.theme}</label>
+            <div className='' key={i}>
+              <div className=''>
+                <div className=''>
+                  <label className=''>{topic.theme}</label>
                 </div>
-                <div className='col text-center'>
-                  <label className='text-black-50'>{topic.id}</label>
+                <div className=''>
+                  <label className=''>{topic.id}</label>
                 </div>
-                <div className='col'>
+                <div className=''>
                   <button
                     onClick={() => deleteTopic(topic.id)}
-                    className='btn btn-sm btn-light bg-transparent text-black-50'>
+                    className=''>
                     Delete
                   </button>
                 </div>
