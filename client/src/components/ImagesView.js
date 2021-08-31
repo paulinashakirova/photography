@@ -28,22 +28,21 @@ export default function UserViewPhotos() {
       setError(error.message);
     }
   };
-
   return (
-    <div className='row mt-3'>
-      <div className='tab content'>
+    <div>
+      <div>
         {photos
           // .filter((photo) => photo.id === id)
           .map((photo) => (
-            <div className='mb-4 text-center' key={photo.id}>
+            <div key={photo.id}>
               {/* this link is not working */}
               <Link to={`/photosview/${photo.id}/topics`}>
-                <div className='row justify-content-center'>
-                  <div className='col-6'>
-                    <img alt='' src={photo.image} className=' col-10 ' />
-                    <label className='text-white-50'>{photo.title}</label>
-                    <label className='text-white-50'>{photo.price}</label>
-                    <p className='text-white-50'>{photo.description}</p>
+                <div>
+                  <div>
+                    <img alt='' src={photo.image} />
+                    <label>{photo.title}</label>
+                    <label>{photo.price}</label>
+                    <p>{photo.description}</p>
                   </div>
                 </div>
               </Link>
@@ -52,4 +51,27 @@ export default function UserViewPhotos() {
       </div>
     </div>
   );
+  // return (
+  //   <div className='row mt-3'>
+  //     <div className='tab content'>
+  //       {photos
+  //         // .filter((photo) => photo.id === id)
+  //         .map((photo) => (
+  //           <div className='mb-4 text-center' key={photo.id}>
+  //             {/* this link is not working */}
+  //             <Link to={`/photosview/${photo.id}/topics`}>
+  //               <div className='row justify-content-center'>
+  //                 <div className='col-6'>
+  //                   <img alt='' src={photo.image} className=' col-10 ' />
+  //                   <label className='text-white-50'>{photo.title}</label>
+  //                   <label className='text-white-50'>{photo.price}</label>
+  //                   <p className='text-white-50'>{photo.description}</p>
+  //                 </div>
+  //               </div>
+  //             </Link>
+  //           </div>
+  //         ))}
+  //     </div>
+  //   </div>
+  // );
 }

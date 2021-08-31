@@ -7,6 +7,7 @@
     "migrate": "npx sequelize-cli db:migrate"
   },
   "dependencies": {
+    "@craco/craco": "^6.1.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
@@ -19,7 +20,10 @@
     "sequelize": "^6.6.4"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
     "prettier": "2.3.1",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   }
 }

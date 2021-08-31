@@ -118,22 +118,22 @@ export default function AddPhoto() {
           <form onSubmit={handleSubmit}>
             <div className='row mb-3'>
               <div className='col form-group'>
-                <label className='text-white-50'>Title</label>
+                <label className='text-black-50'>Title</label>
                 <input className='form-control mb-2' name='title' type='text' onChange={handleInputChange} />
               </div>
               <div className='col form-group'>
-                <label className='text-white-50'>Image</label>
+                <label className='text-black-50'>Image</label>
                 <input className='form-control mb-2' name='image' onChange={handleInputChange} />
               </div>
               <div className='col form-group'>
-                <label className='text-white-50'>Price</label>
+                <label className='text-black-50'>Price</label>
                 <input className='form-control mb-2' name='price' onChange={handleInputChange} />
               </div>
             </div>
             <select
               name='topic_id'
               onChange={handleInputChange}
-              className='form-select mb-2 bg-transparent text-white-50'
+              className='form-select mb-2 bg-transparent text-black-50'
               aria-label='Default select example'>
               <option selected>Select a Topic</option>
               {topics.map((topic) => (
@@ -145,7 +145,7 @@ export default function AddPhoto() {
             </select>
 
             <div>
-              <label className='text-white-50'>Description</label>
+              <label>Description</label>
               <textarea
                 className='form-control mb-2'
                 type='text'
@@ -153,7 +153,7 @@ export default function AddPhoto() {
                 onChange={handleInputChange}
               />
             </div>
-            <button className='btn btn-light bg-transparent btn-sm mt-2 text-white-50'>Add Photo</button>
+            <button className=''>Add Photo</button>
           </form>
         </div>
         {error && (
@@ -180,15 +180,15 @@ export default function AddPhoto() {
             <div className='justify-content-between mb-4' key={photo.id}>
               <div className='row'>
                 <div className='col'>
-                  <label className='text-white-50'>{photo.title}</label>
+                  <label className='text-black-50'>{photo.title}</label>
                 </div>
                 <div className='col'>
-                  <p className='text-white-50'>{photo.id}</p>
+                  <p className='text-black-50'>{photo.id}</p>
                 </div>
                 <div className='col'>
                   <button
                     onClick={() => deletePhoto(photo.id)}
-                    className='btn btn-sm btn-light bg-transparent text-white-50'>
+                    className='btn btn-sm btn-light bg-transparent text-black-50'>
                     Delete
                   </button>
                 </div>

@@ -4,7 +4,7 @@ import AddPhoto from './components/AddPhoto';
 import TopicsView from './components/TopicsView';
 import ImagesView from './components/ImagesView';
 
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default function App() {
